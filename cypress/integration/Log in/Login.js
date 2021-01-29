@@ -1,6 +1,6 @@
 
 describe('Login', () => {
-    it('visits the login page', () => {
+    it('visits the main page', () => {
         cy.visit("https://george.csas.cz/?login_hint=7777777777")
 // change language to EN
         
@@ -34,8 +34,8 @@ cy.contains("Login")
 
    cy.server()           // enable response stubbing
    cy.route({
-   method: 'GET',      // Route all POST requests
-   url: 'https://george.csas.cz/api/webapi/v2/gapi/my/transactions?pageSize=50&suggest=true&sum=true&count=true&q=liftago',    // that have a URL that matches '*/api/*/guests'
+   method: 'GET',      // Route all requests
+   url: 'https://george.csas.cz/api/webapi/v2/gapi/my/transactions?pageSize=50&suggest=true&sum=true&count=true&q=liftago',
    }).as('apiCheck')
    cy.get(".btn.g-btn-icon-only.g-btn-icon-secondary.btn-lg.searchButton--3UGdC", { timeout: 14 * 1000 }, { force: true }).click({ force: true })
    
